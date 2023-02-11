@@ -3,7 +3,7 @@
 
 ## Installation
 Installing the qb-oil into your FiveM can be done by following the listed steps below. 
-1. Download the latest version of the resource from (god linken)
+1. Download the latest version of the resource from (https://github.com/teigCoding/qb-oilwell/)
 2. Open the zip file and place the `qb-oilwell` folder into your server's resource folder
 3. Open up your server configuration file and add `ensure qb-oilwell` to your resource start list 
 4. Add the item to qb-core > shared > items.lua
