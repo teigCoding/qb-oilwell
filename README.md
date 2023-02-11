@@ -1,3 +1,5 @@
+# Preview : https://youtu.be/yGndMqQnpps
+
 # Item : qb-core > shared > items.lua
 ['oil'] 						 = { ['name'] = 'oil', 						['label'] = 'Oil', 					['weight'] = 10, 		['type'] = 'item', 		['image'] = 'oil.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = false,	['combinable'] = nil,   ['description'] = 'Oil'},
 
