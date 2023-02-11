@@ -748,8 +748,8 @@ local sellPed = {
     name = "OilSeller",
     heading = 0,
     debugPoly = false,
-    minZ = 0,
-    maxZ = 10,
+    minZ = Config.OilSellerLocation.z - 5,
+    maxZ = Config.OilSellerLocation.z + 5,
 }, {
     options = {
     {
