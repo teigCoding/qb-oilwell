@@ -201,8 +201,9 @@ RegisterNetEvent("qb-oil:server:buyWell",function(args)
 
     local serializedUpgrades = json.encode(upgrades)
 
-
-    if Player.Functions.RemoveMoney("bank", price, "Purchased oilwell") then
+    local bankamount = Player.PlayerData.money.bank
+    if bankamount >= price then
+        Player.Functions.RemoveMoney("bank", price, "Purchased oilwell")
         if not args.boughtFromPlayer then
             MySQL.Async.insert('INSERT INTO oilwell_database (citizenid, oilwell_id,level,oil,durability,sellprice,upgrade) VALUES (?, ?,?,?,?,?,?)', {
                 citizenid,
