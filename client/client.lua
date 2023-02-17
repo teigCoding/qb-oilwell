@@ -81,11 +81,11 @@ local function displayAllRequired(table,repair)
     local newList = {}
     if repair == false then
         for i=1,#table do
-            newList[#newList+1] = Config.UpgradeStartCost+(currentLevel-1)*Config.UpgradeCostIncrease.."x "..table[i]
+            newList[#newList+1] = Config.UpgradeStartCost+(currentLevel-1)*Config.UpgradeCostIncrease.."x "..QBCore.Shared.Items[table[i]]["label"]
         end
     elseif repair == true then
         for i=1,#table do
-            newList[#newList+1] = Config.Repair["Repair"]["cost"]+Config.RepairIncrease*(currentLevel-1).."x "..table[i]
+            newList[#newList+1] = Config.Repair["Repair"]["cost"]+Config.RepairIncrease*(currentLevel-1).."x "..QBCore.Shared.Items[table[i]]["label"]
         end
     end
     
