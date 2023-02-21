@@ -119,7 +119,7 @@ RegisterNetEvent("qb-oil:client:fixAndUpgrade",function(args)
     if typeProgress == "repair" then
         x = checkIfResources(Config.Repair["Repair"]["items"],Config.Repair["Repair"]["cost"])
     else
-        x = checkIfResources(Config.Upgrades[args.typeUpgrade]["items"],Config.UpgradeStartCost+(Config.UpgradeCostIncrease*currentLevel-1))
+        x = checkIfResources(Config.Upgrades[args.typeUpgrade]["items"],Config.UpgradeStartCost+(currentLevel-1)*Config.UpgradeCostIncrease)
     end
         QBCore.Functions.TriggerCallback('qb-oil:server:checkIfUpgradeIsDone', function(result)
             if not result[1] then
