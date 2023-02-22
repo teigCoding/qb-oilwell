@@ -117,7 +117,7 @@ RegisterNetEvent("qb-oil:client:fixAndUpgrade",function(args)
     typeProgress = args.typeProgress
     local x = false
     if typeProgress == "repair" then
-        x = checkIfResources(Config.Repair["Repair"]["items"],Config.Repair["Repair"]["cost"])
+        x = checkIfResources(Config.Repair["Repair"]["items"],Config.Repair["Repair"]["cost"]+Config.RepairIncrease*(currentLevel-1))
     else
         x = checkIfResources(Config.Upgrades[args.typeUpgrade]["items"],Config.UpgradeStartCost+(currentLevel-1)*Config.UpgradeCostIncrease)
     end
