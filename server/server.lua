@@ -281,6 +281,7 @@ local function checkIfResources(source,itemList,amount)
             return false
         end
     end
+    
     return true
 end
 
@@ -292,7 +293,7 @@ RegisterNetEvent("qb-oil:server:upgrade",function(args)
 
     MySQL.Async.fetchAll('SELECT * FROM oilwell_database WHERE oilwell_id = ?', {currentID}, function(row)
         local upgradeDict = json.decode(row[1].upgrade)
-        if checkIfResources(src,Config.Upgrades[args.typeUpgrade]["items"],(Config.UpgradeCostIncrease*row[1].level)) then
+        if checkIfResources(src,Config.Upgrades[args.typeUpgrade]["items"],Config.UpgradeStartCost+(currentLevel-1)*Config.UpgradeCostIncrease) then
             local upgradeExist = upgradeDict[args.typeUpgrade] == row[1].level
             if not upgradeExist then
                 upgradeDict[args.typeUpgrade] = upgradeDict[args.typeUpgrade] +1
@@ -307,7 +308,7 @@ RegisterNetEvent("qb-oil:server:upgrade",function(args)
                     TriggerClientEvent('QBCore:Notify', src, Lang:t("success.upgrade"), "success")
                 end
                 for i=1,#Config.Upgrades[args.typeUpgrade]["items"] do
-                    Player.Functions.RemoveItem(Config.Upgrades[args.typeUpgrade]["items"][i], (Config.UpgradeCostIncrease*row[1].level))
+                    Player.Functions.RemoveItem(Config.Upgrades[args.typeUpgrade]["items"][i], Config.UpgradeStartCost+(currentLevel-1)*Config.UpgradeCostIncrease)
                     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[Config.Upgrades[args.typeUpgrade]["items"][i]], "remove", 1)
                 end
                 local newLevel = row[1].level
