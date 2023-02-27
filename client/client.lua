@@ -284,18 +284,6 @@ RegisterNetEvent('qb-oil:client:sellWell', function(args)
             isMenuHeader = true,
         },
         {
-            header = Lang:t("label.putout_sale"),
-            icon = "fa-sharp fa-solid fa-octagon-check",
-            txt = Lang:t("label.sell_to_others"),
-            params = {
-                isServer = false,
-                event = "qb-oil:client:sellWellMenu",
-                args = {
-                    quicksell = false,
-                    currentID = currentID
-                }
-            }},
-        {
             header = Lang:t("label.sell_quick"),
             icon = "fa-sharp fa-solid fa-octagon-check",
             txt = string.format(Lang:t("label.sell_for"),math.ceil(Config.OilWellCost*Config.LossWhenSell)),
